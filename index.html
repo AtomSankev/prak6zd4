@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реєстрація користувача</title>
+</head>
+<body>
+    <h1>Реєстрація нового користувача</h1>
+    <form id="registrationForm">
+        <label for="username">Ім'я:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Пароль:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="submit">Зареєструватися</button>
+    </form>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Зупиняє відправку форми
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Просте збереження даних у локальне сховище (локально на цьому ж комп'ютері)
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+
+            // Перенаправлення на сторінку з тестом
+            window.location.href = 'quiz.html';
+        });
+    </script>
+</body>
+</html>
